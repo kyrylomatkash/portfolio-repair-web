@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/portfolio-repair-web/static/css/main.7acaea2f.css",
+    "main.js": "/portfolio-repair-web/static/js/main.07d3183d.js",
+    "index.html": "/portfolio-repair-web/index.html",
+    "main.7acaea2f.css.map": "/portfolio-repair-web/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/portfolio-repair-web/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
