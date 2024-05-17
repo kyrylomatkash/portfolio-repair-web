@@ -10,11 +10,22 @@ import {
   Alert,
   AlertIcon,
   Spinner,
+  Switch,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  Text,
+  Flex,
 } from '@chakra-ui/react';
 import successSound from './short-success-sound-glockenspiel-treasure-video-game-6346.mp3';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const ContactForm = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,6 +36,7 @@ const ContactForm = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [playSuccessSound, setPlaySuccessSound] = useState(true);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -37,7 +49,6 @@ const ContactForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setError('Please enter a valid email address');
@@ -45,19 +56,22 @@ const ContactForm = () => {
     }
 
     setError(null);
-
     setIsLoading(true);
 
     try {
       await submitForm(formData);
 
-      const audio = new Audio(successSound);
-      audio.play();
+      if (playSuccessSound) {
+        const audio = new Audio(successSound);
+        audio.play();
+      }
 
       setShowSuccessMessage(true);
+      onOpen();
 
       setTimeout(() => {
         setShowForm(false);
+        onClose();
       }, 3000);
 
       setFormData({
@@ -76,8 +90,7 @@ const ContactForm = () => {
   const submitForm = formData => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        // resolve();
-        reject(new Error('Submission failed'));
+        resolve();
       }, 2000);
     });
   };
@@ -121,6 +134,8 @@ const ContactForm = () => {
               placeholder="Your email"
               required
               variant="filled"
+              isInvalid={!!error}
+              errorBorderColor="red.300"
             />
           </FormControl>
           <FormControl id="message" mb={4}>
@@ -134,6 +149,9 @@ const ContactForm = () => {
               required
               variant="filled"
             />
+            <Text mt={2} color="gray.500" fontSize="sm">
+              {formData.message.length} / 500
+            </Text>
           </FormControl>
           <Button type="submit" colorScheme="blue" disabled={isLoading}>
             {isLoading ? <Spinner size="sm" color="white" /> : 'Send Message'}
@@ -142,18 +160,34 @@ const ContactForm = () => {
             Clear
           </Button>
           {error && (
-            <Alert status="error" mt={4}>
+            <Alert status="error" mt={4} aria-live="assertive">
               <AlertIcon />
               {error}
             </Alert>
           )}
         </form>
       )}
+      <Flex mt={4} align="center">
+        <Text mr={2}>Play success sound</Text>
+        <Switch
+          isChecked={playSuccessSound}
+          onChange={() => setPlaySuccessSound(!playSuccessSound)}
+        />
+      </Flex>
       {showSuccessMessage && (
-        <Alert status="success" mt={4}>
-          <AlertIcon as={CheckCircleIcon} color="green.500" />
-          Your message has been sent successfully!
-        </Alert>
+        <Modal isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Success</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Flex align="center">
+                <CheckCircleIcon color="green.500" mr={2} />
+                <Text>Your message has been sent successfully!</Text>
+              </Flex>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       )}
     </Box>
   );
