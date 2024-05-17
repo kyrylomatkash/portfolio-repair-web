@@ -12,18 +12,21 @@ const Portfolio = () => {
         <ProjectCard
           title="Project 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageSrc="https://via.placeholder.com/300"
           githubLink="https://github.com/example/project1"
           liveDemoLink="https://example.com/project1"
         />
         <ProjectCard
           title="Project 2"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageSrc="https://via.placeholder.com/300"
           githubLink="https://github.com/example/project2"
           liveDemoLink="https://example.com/project2"
         />
         <ProjectCard
           title="Project 3"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          imageSrc="https://via.placeholder.com/300"
           githubLink="https://github.com/example/project3"
           liveDemoLink="https://example.com/project3"
         />
@@ -32,7 +35,13 @@ const Portfolio = () => {
   );
 };
 
-const ProjectCard = ({ title, description, githubLink, liveDemoLink }) => {
+const ProjectCard = ({
+  title,
+  description,
+  imageSrc,
+  githubLink,
+  liveDemoLink,
+}) => {
   return (
     <Box
       p={4}
@@ -41,6 +50,13 @@ const ProjectCard = ({ title, description, githubLink, liveDemoLink }) => {
       transition="all 0.3s ease-out"
       _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg' }}
     >
+      <Box mb={4} borderRadius="md" overflow="hidden">
+        <img
+          src={imageSrc}
+          alt={title}
+          style={{ width: '100%', height: 'auto' }}
+        />
+      </Box>
       <Heading as="h3" size="md" mb={2}>
         {title}
       </Heading>

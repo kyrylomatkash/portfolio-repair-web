@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, Flex } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Avatar, Stack } from '@chakra-ui/react';
 
 const About = () => {
   return (
@@ -13,24 +13,46 @@ const About = () => {
         impact on people's lives.
       </Text>
       <Flex
+        direction="column"
         align="center"
         justify="center"
-        w="100%"
-        h="200px"
         bg="gray.100"
         borderRadius="lg"
+        p={6}
       >
-        <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-          className="animated-svg"
-        >
-          <circle cx="50" cy="50" r="40" fill="blue" />
-          <rect x="15" y="30" width="70" height="40" rx="8" fill="white" />
-        </svg>
+        <Heading as="h3" size="lg" mb={4}>
+          Meet Our Team
+        </Heading>
+        <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
+          <TeamMember
+            name="John Doe"
+            role="Frontend Developer"
+            description="Passionate about creating beautiful and intuitive user interfaces."
+            avatarSrc="https://via.placeholder.com/150"
+          />
+          <TeamMember
+            name="Jane Smith"
+            role="Backend Developer"
+            description="Excited about building robust and scalable server-side applications."
+            avatarSrc="https://via.placeholder.com/150"
+          />
+        </Stack>
       </Flex>
+    </Box>
+  );
+};
+
+const TeamMember = ({ name, role, description, avatarSrc }) => {
+  return (
+    <Box textAlign="center">
+      <Avatar src={avatarSrc} alt={name} size="xl" mb={4} />
+      <Heading as="h4" size="md" mb={2}>
+        {name}
+      </Heading>
+      <Text fontSize="sm" color="gray.600" mb={2}>
+        {role}
+      </Text>
+      <Text fontSize="sm">{description}</Text>
     </Box>
   );
 };

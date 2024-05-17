@@ -12,16 +12,16 @@ const StyledQuote = styled.div`
 const Quotes = () => {
   const [quote, setQuote] = useState('');
 
-  useEffect(() => {
-    const fetchQuote = async () => {
-      try {
-        const response = await axios.get('https://api.quotable.io/random');
-        setQuote(response.data.content);
-      } catch (error) {
-        console.error('Error fetching quote:', error);
-      }
-    };
+  const fetchQuote = async () => {
+    try {
+      const response = await axios.get('https://api.quotable.io/random');
+      setQuote(response.data.content);
+    } catch (error) {
+      console.error('Error fetching quote:', error);
+    }
+  };
 
+  useEffect(() => {
     fetchQuote();
   }, []);
 
@@ -29,6 +29,7 @@ const Quotes = () => {
     <StyledQuote>
       <h2>Random Quote</h2>
       <p>{quote}</p>
+      <button onClick={fetchQuote}>Get New Quote</button>
     </StyledQuote>
   );
 };

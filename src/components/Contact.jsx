@@ -9,6 +9,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
+  Text,
 } from '@chakra-ui/react';
 import Form from './Form';
 import FAQs from './Faq';
@@ -26,12 +27,21 @@ const Contact = () => {
         Contact Us
       </Heading>
       <FAQs />
-
       <Box mt={4}>
         <Button colorScheme="blue" onClick={toggleModal}>
           Get in Touch
         </Button>
       </Box>
+      <Box mt={8}>
+        <Heading as="h3" size="lg" mb={2}>
+          Contact Information
+        </Heading>
+        <Text>Email: example@example.com</Text>
+        <Text>Phone: +1234567890</Text>
+        <Text>Address: 123 Main St, City, Country</Text>
+      </Box>
+
+      {/* Modal for Contact Form */}
       <Modal isOpen={isOpen} onClose={toggleModal}>
         <ModalOverlay />
         <ModalContent>
