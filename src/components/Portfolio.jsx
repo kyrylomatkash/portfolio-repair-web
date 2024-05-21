@@ -5,10 +5,10 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const Portfolio = () => {
   return (
     <Box p={8}>
-      <Heading as="h2" size="xl" mb={4}>
+      <Heading as="h2" size="xl" mb={8} textAlign="center" fontWeight="bold">
         Portfolio
       </Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
         <ProjectCard
           title="Project 1"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
@@ -44,23 +44,29 @@ const ProjectCard = ({
 }) => {
   return (
     <Box
-      p={4}
-      bg="gray.100"
-      borderRadius="md"
+      p={6}
+      bg="white"
+      borderRadius="lg"
+      boxShadow="0 4px 12px rgba(0, 0, 0, 0.1)"
       transition="all 0.3s ease-out"
-      _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg' }}
+      _hover={{
+        transform: 'translateY(-5px)',
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
+      }}
     >
-      <Box mb={4} borderRadius="md" overflow="hidden">
+      <Box mb={4} borderRadius="lg" overflow="hidden">
         <img
           src={imageSrc}
           alt={title}
           style={{ width: '100%', height: 'auto' }}
         />
       </Box>
-      <Heading as="h3" size="md" mb={2}>
+      <Heading as="h3" size="md" mb={2} fontWeight="semibold">
         {title}
       </Heading>
-      <Text mb={4}>{description}</Text>
+      <Text mb={4} color="gray.600">
+        {description}
+      </Text>
       <Flex justifyContent="space-between">
         <Icon
           as={FaGithub}

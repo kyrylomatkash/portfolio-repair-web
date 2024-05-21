@@ -1,7 +1,17 @@
 import React from 'react';
-import { Box, Heading, Text, Flex, Avatar, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Flex,
+  Avatar,
+  Stack,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 const About = () => {
+  const teamMemberBg = useColorModeValue('white', 'gray.800');
+
   return (
     <Box p={8}>
       <Heading as="h2" size="xl" mb={4}>
@@ -29,6 +39,7 @@ const About = () => {
             role="Frontend Developer"
             description="Passionate about creating beautiful and intuitive user interfaces."
             avatarSrc="https://via.placeholder.com/150"
+            bg={teamMemberBg}
           />
         </Stack>
       </Flex>
@@ -36,9 +47,9 @@ const About = () => {
   );
 };
 
-const TeamMember = ({ name, role, description, avatarSrc }) => {
+const TeamMember = ({ name, role, description, avatarSrc, bg }) => {
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" bg={bg} borderRadius="md" p={4} boxShadow="md">
       <Avatar src={avatarSrc} alt={name} size="xl" mb={4} />
       <Heading as="h4" size="md" mb={2}>
         {name}

@@ -71,20 +71,27 @@ const Hero = () => {
       <Box
         py={20}
         textAlign="center"
-        bgGradient="linear(to-b, teal.500, purple.500)"
-        color="white"
+        bg="gray.50"
+        color="gray.800"
         borderRadius="xl"
         mx="auto"
         maxW="container.lg"
+        boxShadow="xl"
       >
-        <Heading as="h1" size="2xl" mb={4}>
+        <Heading
+          as="h1"
+          size="2xl"
+          mb={4}
+          fontWeight="bold"
+          letterSpacing="tight"
+        >
           Welcome to Our Awesome App
         </Heading>
-        <Heading as="h2" size="lg" mb={8}>
+        <Heading as="h2" size="lg" mb={8} fontWeight="semibold">
           Turn Your Ideas into Reality
         </Heading>
         <Box display="inline-block" mb={8}>
-          <Heading as="h3" size="md" mb={2} color="yellow.400">
+          <Heading as="h3" size="md" mb={2} color="blue.500">
             {helloText}
             {showCursor && <span className="cursor">|</span>}
           </Heading>
@@ -93,7 +100,14 @@ const Hero = () => {
           We specialize in creating innovative and user-friendly web
           applications tailored to your needs. Let's bring your vision to life!
         </Text>
-        <Button colorScheme="blue" size="lg" mb={12}>
+        <Button
+          colorScheme="blue"
+          size="lg"
+          mb={12}
+          bg="blue.500"
+          _hover={{ bg: 'blue.600' }}
+          boxShadow="0 4px 14px rgba(0, 118, 255, 0.39)"
+        >
           Get Started Now
         </Button>
         <Stack
@@ -116,7 +130,13 @@ const Hero = () => {
           />
         </Stack>
         <Flex justify="center" mb={12}>
-          <Box w={{ base: '80%', md: '50%' }}>
+          <Box
+            w={{ base: '80%', md: '50%' }}
+            p={4}
+            bg="white"
+            borderRadius="md"
+            boxShadow="md"
+          >
             <FormControl id="email" isRequired>
               <FormLabel>Email Address</FormLabel>
               <Flex align="center">
@@ -125,12 +145,14 @@ const Hero = () => {
                   placeholder="Your email address"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
+                  _placeholder={{ color: 'gray.400' }}
                 />
                 <Button
                   colorScheme="blue"
                   ml={4}
                   onClick={handleSubscribe}
                   disabled={subscribed}
+                  _hover={{ bg: 'blue.600' }}
                 >
                   {subscribed ? 'Subscribed' : 'Subscribe'}
                 </Button>
