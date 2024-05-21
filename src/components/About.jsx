@@ -25,15 +25,9 @@ const About = () => {
         </Heading>
         <Stack direction={{ base: 'column', md: 'row' }} spacing={6}>
           <TeamMember
-            name="John Doe"
+            name="Kyrylo Matkash"
             role="Frontend Developer"
             description="Passionate about creating beautiful and intuitive user interfaces."
-            avatarSrc="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            name="Jane Smith"
-            role="Backend Developer"
-            description="Excited about building robust and scalable server-side applications."
             avatarSrc="https://via.placeholder.com/150"
           />
         </Stack>
