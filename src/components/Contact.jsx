@@ -6,7 +6,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalBody,
   ModalFooter,
   Text,
@@ -36,16 +35,14 @@ const Contact = () => {
         <Heading as="h3" size="lg" mb={2}>
           Contact Information
         </Heading>
-        <Text>Email: example@example.com</Text>
-        <Text>Phone: +1234567890</Text>
-        <Text>Address: 123 Main St, City, Country</Text>
+        <Text>Email: kyrylomatkashwork@gmail.com</Text>
+        <Text>Phone: +48794694293</Text>
+        <Text>Warsaw, Masovia,Poland</Text>
       </Box>
 
-      {/* Modal for Contact Form */}
       <Modal isOpen={isOpen} onClose={toggleModal}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Contact Us</ModalHeader>
           <ModalBody>
             <Form />
           </ModalBody>
