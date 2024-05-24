@@ -10,25 +10,25 @@ const Portfolio = () => {
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
         <ProjectCard
-          title="Project 1"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          title="Phonebook"
+          description="Application for saving contacts with authorization,editing, and deleting functionality,which delivers a fast interface and experience"
           imageSrc="https://via.placeholder.com/300"
-          githubLink="https://github.com/example/project1"
-          liveDemoLink="https://example.com/project1"
+          githubLink="https://github.com/kyrylomatkash/goit-react-hw-08-phonebook"
+          liveDemoLink="https://kyrylomatkash.github.io/goit-react-hw-08-phonebook/"
         />
         <ProjectCard
-          title="Project 2"
+          title="Camp Renting"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           imageSrc="https://via.placeholder.com/300"
-          githubLink="https://github.com/example/project2"
-          liveDemoLink="https://example.com/project2"
+          githubLink="https://github.com/kyrylomatkash/camp-renting"
+          liveDemoLink="https://kyrylomatkash.github.io/camp-renting/"
         />
         <ProjectCard
-          title="Project 3"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          title="Water Tracker"
+          description="Water consumption tracker. Record daily water intake and track."
           imageSrc="https://via.placeholder.com/300"
-          githubLink="https://github.com/example/project3"
-          liveDemoLink="https://example.com/project3"
+          githubLink="https://github.com/BendelVolodymyr/Smart-Foxes-WaterTracker"
+          liveDemoLink="https://bendelvolodymyr.github.io/Smart-Foxes-WaterTracker/welcome"
         />
       </SimpleGrid>
     </Box>
