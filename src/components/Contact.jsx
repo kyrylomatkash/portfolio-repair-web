@@ -11,7 +11,6 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Form from './Form';
-import FAQs from './Faq';
 
 const Contact = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +24,6 @@ const Contact = () => {
       <Heading as="h2" size="xl">
         Contact Us
       </Heading>
-      <FAQs />
       <Box mt={4}>
         <Button colorScheme="blue" onClick={toggleModal}>
           Get in Touch
