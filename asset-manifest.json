@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/portfolio-repair-web/static/css/main.7acaea2f.css",
-    "main.js": "/portfolio-repair-web/static/js/main.08cdd553.js",
+    "main.js": "/portfolio-repair-web/static/js/main.dfb8d38f.js",
     "static/media/short-success-sound-glockenspiel-treasure-video-game-6346.mp3": "/portfolio-repair-web/static/media/short-success-sound-glockenspiel-treasure-video-game-6346.5f1fee46481f6a9e2585.mp3",
     "index.html": "/portfolio-repair-web/index.html",
     "main.7acaea2f.css.map": "/portfolio-repair-web/static/css/main.7acaea2f.css.map",
-    "main.08cdd553.js.map": "/portfolio-repair-web/static/js/main.08cdd553.js.map"
+    "main.dfb8d38f.js.map": "/portfolio-repair-web/static/js/main.dfb8d38f.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.08cdd553.js"
+    "static/js/main.dfb8d38f.js"
   ]
 }
