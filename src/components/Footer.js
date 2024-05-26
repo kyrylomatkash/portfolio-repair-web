@@ -1,71 +1,85 @@
-import { Box, Flex, Text, Icon, Link } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Flex, Text, Icon, Link, useDisclosure } from '@chakra-ui/react';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import TermsAndPolicy from './TermsAndPolicy';
 
 function Footer() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalType, setModalType] = useState(null);
+
+  const handleOpenModal = type => {
+    setModalType(type);
+    onOpen();
+  };
+
   return (
-    <Box bg="gray.800" color="white" p="4">
+    <Box bg="gray.800" color="white" py="4" px="6">
       <Flex
         justify="space-between"
         align="center"
-        direction={['column', 'row']}
-        textAlign={['center', 'left']}
+        flexDirection={['column', 'row']}
+        maxW="1200px"
+        mx="auto"
       >
         <Box mb={[4, 0]}>
-          <Text>© 2024 . All rights reserved.</Text>
-          <Flex mt={2} justify={['center', 'start']}>
-            <Link
-              href="/privacy-policy"
-              mr="4"
-              _hover={{ textDecoration: 'underline' }}
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              _hover={{ textDecoration: 'underline' }}
-            >
+          <Text fontSize="sm">&copy; 2024. All rights reserved.</Text>
+          <Flex mt="2" justifyContent={['center', 'start']}>
+            <FooterLink onClick={() => handleOpenModal('terms')}>
               Terms of Service
-            </Link>
+            </FooterLink>
+            <FooterLink onClick={() => handleOpenModal('policy')}>
+              Privacy Policy
+            </FooterLink>
           </Flex>
         </Box>
-        <Box>
-          <Flex justify={['center', 'flex-end']}>
-            <Link
-              href="https://facebook.com"
-              isExternal
-              aria-label="Facebook"
-              mr="2"
-            >
-              <Icon
-                as={FaFacebookF}
-                boxSize={6}
-                _hover={{ color: 'teal.300' }}
-              />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              isExternal
-              aria-label="Twitter"
-              mr="2"
-            >
-              <Icon as={FaTwitter} boxSize={6} _hover={{ color: 'teal.300' }} />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              isExternal
-              aria-label="Instagram"
-            >
-              <Icon
-                as={FaInstagram}
-                boxSize={6}
-                _hover={{ color: 'teal.300' }}
-              />
-            </Link>
-          </Flex>
-        </Box>
+        <Flex alignItems="center">
+          <Text mr="4" fontSize="sm" display={['none', 'block']}>
+            Follow us:
+          </Text>
+          <SocialLink
+            href="https://facebook.com"
+            ariaLabel="Facebook"
+            icon={FaFacebookF}
+          />
+          <SocialLink
+            href="https://twitter.com"
+            ariaLabel="Twitter"
+            icon={FaTwitter}
+          />
+          <SocialLink
+            href="https://instagram.com"
+            ariaLabel="Instagram"
+            icon={FaInstagram}
+          />
+        </Flex>
       </Flex>
+      <TermsAndPolicy isOpen={isOpen} onClose={onClose} type={modalType} />
     </Box>
   );
 }
+
+const FooterLink = ({ onClick, children }) => (
+  <Text
+    as="button"
+    onClick={onClick}
+    mr="4"
+    _hover={{ textDecoration: 'underline', cursor: 'pointer' }}
+    fontSize="sm"
+  >
+    {children}
+  </Text>
+);
+
+const SocialLink = ({ href, ariaLabel, icon }) => (
+  <Link
+    href={href}
+    isExternal
+    aria-label={ariaLabel}
+    mr="2"
+    _hover={{ color: 'teal.300' }}
+  >
+    <Icon as={icon} boxSize="6" />
+  </Link>
+);
 
 export default Footer;
