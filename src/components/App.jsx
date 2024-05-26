@@ -15,10 +15,10 @@ function App() {
       <GlobalStyles />
       <Navbar />
       <Quotes />
-      <Hero />
-      <About />
-      <Portfolio />
-      <Contact />
+      <Hero id="home" />
+      <About id="about" />
+      <Portfolio id="portfolio" />
+      <Contact id="contact" />
       <Footer />
     </ChakraProvider>
   );

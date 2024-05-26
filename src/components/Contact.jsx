@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import Form from './Form';
 
-const Contact = () => {
+const Contact = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleModal = () => {
@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <Box p={8}>
+    <Box id={id} p={8}>
       <Heading as="h2" size="xl">
         Contact Us
       </Heading>

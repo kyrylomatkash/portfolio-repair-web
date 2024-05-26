@@ -2,9 +2,9 @@ import React from 'react';
 import { Box, Heading, SimpleGrid, Flex, Icon, Text } from '@chakra-ui/react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-const Portfolio = () => {
+const Portfolio = ({ id }) => {
   return (
-    <Box p={8}>
+    <Box id={id} p={8}>
       <Heading as="h2" size="xl" mb={8} textAlign="center" fontWeight="bold">
         Portfolio
       </Heading>

@@ -9,11 +9,11 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
-const About = () => {
+const About = ({ id }) => {
   const teamMemberBg = useColorModeValue('white', 'gray.800');
 
   return (
-    <Box p={8}>
+    <Box id={id} p={8}>
       <Heading as="h2" size="xl" mb={4}>
         About Us
       </Heading>
