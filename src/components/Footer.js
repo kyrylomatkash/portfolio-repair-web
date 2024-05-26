@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import { Box, Flex, Text, Icon, Link, useDisclosure } from '@chakra-ui/react';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import TermsAndPolicy from './TermsAndPolicy';
+import AnimatedFlags from './AnimatedFlags';
 
 function Footer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -23,6 +24,9 @@ function Footer() {
       >
         <Box mb={[4, 0]}>
           <Text fontSize="sm">&copy; 2024. All rights reserved.</Text>
+          <Text fontSize="xs">
+            Located in Poland. Operating under EU Intellectual property laws.
+          </Text>
           <Flex mt="2" justifyContent={['center', 'start']}>
             <FooterLink onClick={() => handleOpenModal('terms')}>
               Terms of Service
@@ -53,6 +57,7 @@ function Footer() {
           />
         </Flex>
       </Flex>
+      <AnimatedFlags />
       <TermsAndPolicy isOpen={isOpen} onClose={onClose} type={modalType} />
     </Box>
   );
